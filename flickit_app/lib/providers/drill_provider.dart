@@ -17,7 +17,7 @@ class DrillProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final url = Uri.parse('http://192.168.30.71:5000/api/drills');
+    final url = Uri.parse('https://flickit.onrender.com/api/drills');
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
@@ -39,7 +39,7 @@ class DrillProvider with ChangeNotifier {
     required String drillId,
     required int completedCount,
   }) async {
-    final url = Uri.parse('http://192.168.30.71:5000/api/drills/submit');
+    final url = Uri.parse('https://flickit.onrender.com/api/drills/submit');
 
     try {
       final response = await http.post(

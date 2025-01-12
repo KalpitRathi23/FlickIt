@@ -17,7 +17,7 @@ class UserDashboardProvider with ChangeNotifier {
     notifyListeners();
 
     final url = Uri.parse(
-        'http://192.168.30.71:5000/api/drills/user/$userId/dashboard');
+        'https://flickit.onrender.com/api/drills/user/$userId/dashboard');
 
     try {
       final response = await http.get(url);

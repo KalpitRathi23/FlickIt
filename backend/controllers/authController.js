@@ -16,9 +16,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
-  console.log("in login");
   try {
-    console.log("in try");
     const user = await User.findOne({ username });
     if (!user) return res.status(404).json({ error: 'User not found' });
 
@@ -28,7 +26,6 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.status(200).json({ token, userId: user._id });
   } catch (error) {
-    console.log("in catch");
     res.status(400).json({ error: error.message });
   }
 };

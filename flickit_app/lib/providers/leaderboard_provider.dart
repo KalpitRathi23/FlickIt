@@ -16,7 +16,7 @@ class LeaderboardProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final url = Uri.parse('http://192.168.30.71:5000/api/leaderboard');
+    final url = Uri.parse('https://flickit.onrender.com/api/leaderboard');
 
     try {
       final response = await http.get(url);

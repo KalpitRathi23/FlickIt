@@ -29,7 +29,7 @@ class AuthProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final url = Uri.parse('http://192.168.30.71:5000/api/auth/register');
+    final url = Uri.parse('https://flickit.onrender.com/api/auth/register');
     try {
       final response = await http.post(
         url,
@@ -56,15 +56,13 @@ class AuthProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final url = Uri.parse('http://192.168.30.71:5000/api/auth/login');
+    final url = Uri.parse('https://flickit.onrender.com/api/auth/login');
     try {
       final response = await http.post(
         url,
         body: json.encode({'username': username, 'password': password}),
         headers: {'Content-Type': 'application/json'},
       );
-      print(response.statusCode);
-      print(response.body);
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
